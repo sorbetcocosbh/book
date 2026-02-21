@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sorbet Coco St Barth – Coconut Sorbet Experience</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Traditional Caribbean coconut sorbet service with hostess for events, weddings and private parties.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      color: #2f2f2f;
+      background-color: #fffaf4;
+    }
+    .vaness{
+      object-position: center top;
+    }
+    .lang-switch {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+    a{
+      color: #b3541e;
+    }
+
+    .lang-switch button {
+      background: rgba(255,255,255,0.85);
+      border: none;
+      padding: 8px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-left: 5px;
+      font-size: 18px;
+    }
+
+    header {
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+       url('sorbet-coco-bg.jpg') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 120px 20px;
+      position: relative;
+    }
+
+    header h1 { font-size: 3rem; font-family: 'Satisfy', cursive; }
+
+    header p {
+      font-size: 1.3rem;
+      max-width: 700px;
+      margin: 20px auto 30px;
+    }
+
+    .btn {
+      padding: 15px 30px;
+      background-color: #ffb703;
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 30px;
+    }
+
+    section {
+      padding: 70px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    section h2 {
+      text-align: center;
+      font-size: 2.4rem;
+      margin-bottom: 40px;
+      color: #b3541e;
+      font-family: 'Satisfy', cursive;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      text-align: center;
+    }
+
+    .card h3 {
+      margin-bottom: 15px;
+      font-size: 1.35rem;
+      font-weight: 600;
+    }
+
+    /* — SECTION MENU — */
+    .menu-section {
+      max-width: 960px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+      text-align: center;
+    }
+
+    .menu-section .title {
+      font-size: 2.4rem;
+      margin-bottom: 1.5rem;
+      letter-spacing: 1px;
+      color: #222;
+    }
+
+    /* — GRILLE DES PLATS — */
+    .menu-grid {
+      display: grid;
+      gap: 1.8rem;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      padding: 1rem 0;
+    }
+
+    /* — CARD DU PLAT — */
+    .menu-item {
+      background: #fff;
+      padding: 1.6rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .menu-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+    }
+
+    .item-name {
+      font-size: 1.35rem;
+      margin: 0.4rem 0;
+      color: #111;
+      font-weight: 600;
+    }
+
+    .item-desc {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+
+    /* ===== INSTAGRAM GRID (3 COLS ALWAYS) ===== */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px;
+    }
+
+    .photo-grid img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    /* ===== MODAL ===== */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+    }
+
+    .modal.active { display: flex; }
+
+    .modal img {
+      max-width: 90%;
+      max-height: 85%;
+      border-radius: 15px;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      font-size: 32px;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .contact {
+      background-color: #fbe8d3;
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    footer {
+      background-color: #3a1f0e;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+
+    /* ===== WHATSAPP ===== */
+    .whatsapp-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      width: 60px;
+      height: 60px;
+      background-color: #25D366;
+      color: white;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 28px;
+      line-height: 60px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+      z-index: 999;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div style="position:absolute; top:20px; left:20px; display:flex; align-items:center; gap:15px;">
+    <img src="Sorbetcoco-stBarth.png" alt="Logo Sorbet Coco" style="height:90px; width:auto;">
+  </div>
+  <div class="lang-switch">
+    <button onclick="setLang('fr')">🇫🇷</button>
+    <button onclick="setLang('en')">🇬🇧</button>
+  </div>
+
+  <h1 data-fr="🌴🥥 Sorbet Coco Traditionnel Caribbean"
+      data-en="🌴🥥 Traditional Caribbean Coconut Sorbet"></h1>
+
+  <p data-fr="Offrez à vos invités une expérience authentique des Antilles avec notre sorbetière artisanale et nos boissons healthy maison."
+     data-en="Treat your guests to an authentic Caribbean experience with our traditional coconut sorbet and homemade healthy drinks."></p>
+
+  <a href="#contact" class="btn"
+     data-fr="Demander un devis"
+     data-en="Request a quote"></a>
+</header>
+
+<section>
+  <h2 data-fr="Une animation unique et gourmande"
+      data-en="A unique and delicious experience"></h2>
+
+  <div class="features">
+    <div class="card">
+      <h3 data-fr="🥥 Sorbet coco artisanal"
+          data-en="🥥 Handmade coconut sorbet"></h3>
+      <p data-fr="Préparé à l’ancienne avec de la noix de coco fraîche et des épices locales."
+         data-en="Made the traditional way with fresh coconut and Caribbean spices."></p>
+    </div>
+
+    <div class="card">
+      <h3 data-fr="🍹 Boissons healthy artisanales"
+          data-en="🍹 Handmade healthy drinks"></h3>
+      <p data-fr="Préparées maison avec des ingrédients naturels et locaux : bissap, menthe, citron, gingembre et super-aliments."
+         data-en="Homemade with natural ingredients: hibiscus, mint, lemon, ginger and superfoods."></p>
+    </div>
+
+    <div class="card">
+      <h3 data-fr="🎉 Tous vos événements"
+          data-en="🎉 All your events"></h3>
+      <p data-fr="Mariages, anniversaires, soirées privées, événements d’entreprise."
+         data-en="Weddings, birthdays, private parties, corporate events."></p>
+    </div>
+
+    <div class="card">
+      <h3 data-fr="🧑‍🌾 Retrouvez nous très bientot au marché de Gustavia"
+          data-en="🧑‍🌾 Soon at Gustavia sunday market"></h3>
+      <p data-fr="Retrouvez nous très bientôt tous les premiers dimanches du mois au marché de Gustavia"
+         data-en="Soon available at Gustavia market every first sunday of the month."></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 data-fr="🌴🥥 Sorbet Coco"
+      data-en="🌴🥥 Coco Sorbet"></h2>
+  <div class="card">
+    <div class="photo-grid">
+      <img src="sorbet-coco-citron.jpg" onclick="openModal(this.src)">
+      <img src="tradition-caraibes.jpg" onclick="openModal(this.src)">
+      <img class="vaness" src="vanessa-sorbet-coco.jpg" onclick="openModal(this.src)">
+    </div>
+    <p data-fr="Aux Caraïbes, le sorbet coco est bien plus qu’un simple dessert : c’est un rituel de fraîcheur et de partage. Préparé à partir de lait de coco frais, parfumé à la cannelle, à la muscade et parfois à la vanille ou au citron vert, il est traditionnellement turbiné à la main dans une sorbetière en bois. On le déguste glacé, souvent dans les rues ou sur les plages, pour se rafraîchir sous le soleil tropical, avec ce goût crémeux et épicé qui évoque instantanément les îles."
+       data-en="In the Caribbean, coconut sorbet is more than just a dessert — it’s a moment of freshness and sharing. Made from fresh coconut milk and delicately spiced with cinnamon, nutmeg, and sometimes vanilla or lime zest, it is traditionally churned by hand in a wooden sorbet maker. Enjoyed ice-cold, often on the streets or by the beach, it’s the perfect way to cool down, with a creamy, fragrant taste that instantly brings the islands to mind."></p>
+  </div>
+</section>
+
+<section class="menu-section">
+  <h2 data-fr="🍹Fabrication de boissons healthy"
+      data-en="🍹 Healthy Drinks"></h2>
+
+  <div class="menu-grid">
+    <div class="menu-item">
+      <h3 class="item-name" data-fr="🌿🌴 Bissap Bio & Menthe Fraîche"
+          data-en="🌿🌴 Organic Hibiscus & Fresh Mint"></h3>
+      <p class="item-desc" data-fr="Infusion naturelle riche en antioxydants."
+         data-en="Natural infusion rich in antioxidants."></p>
+    </div>
+
+    <div class="menu-item">
+      <h3 class="item-name" data-fr="🍋🫚 Citron Gingembre"
+          data-en="🍋🫚 Lemon Ginger"></h3>
+      <p class="item-desc" data-fr="Boisson tonique et rafraîchissante."
+         data-en="Refreshing and energizing drink."></p>
+    </div>
+
+    <div class="menu-item">
+      <h3 class="item-name" data-fr="💪🪸 Spirtonic"
+          data-en="💪🪸 Spirtonic"></h3>
+      <p class="item-desc" data-fr="Spiruline, guarana, acérola et jus de pommes."
+         data-en="Spirulina, guarana, acerola and apple juice."></p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2 data-fr="En images"
+      data-en="Gallery"></h2>
+  <div class="photo-grid">
+    <img src="animation-sorbet-coco.jpg" onclick="openModal(this.src)">
+    <img src="sorbet-gourmand.jpg" onclick="openModal(this.src)">
+    <img src="sorbet-a-la-plage.jpg" onclick="openModal(this.src)">
+    <img src="sorbet-coco-zest-citron.jpg" onclick="openModal(this.src)">
+    <img src="made-with-love.jpg" onclick="openModal(this.src)">
+    <img src="sorbetiere-top.jpg" onclick="openModal(this.src)">
+  </div>
+</section>
+
+<section class="contact" id="contact" style="text-align:center; padding:80px 20px; background-color:#fbe8d3;">
+  <div style="margin-bottom:40px;">
+    <img src="Sorbetcoco-stBarth.png" alt="Logo Sorbet Coco" style="height:150px; width:auto; border-radius:10px;">
+  </div>
+
+  <h2 data-fr="Contact & Devis"
+      data-en="Contact & Quotation"
+      style="font-size:2rem; color:#b3541e; margin-bottom:30px;"></h2>
+
+  <p style="font-size:1.2rem; margin:10px 0;">
+    📧 Email : <a href="mailto:sorbetcoco-stbarth@gmail.com">sorbetcoco-stbarth@gmail.com</a>
+  </p>
+  <p style="font-size:1.2rem; margin:10px 0;">
+    📞 Phone : +33 6 72 03 62 00
+  </p>
+  <p style="font-size:1.2rem; margin:10px 0;">
+    💬 WhatsApp : <a href="https://wa.me/33672036200" target="_blank">+33 6 72 03 62 00</a>
+  </p>
+</section>
+
+<footer>
+  © 2026 – Sorbet Coco St Barth 
+</footer>
+
+<a href="#" class="whatsapp-float" target="_blank">💬</a>
+
+<div class="modal" id="modal" onclick="closeModal(event)">
+  <span class="modal-close" onclick="closeModal(event)">×</span>
+  <img id="modal-img">
+</div>
+
+<script>
+  const whatsappNumber = "33672036200";
+
+  function updateWhatsAppLink(lang) {
+    const messages = {
+      fr: "Bonjour, je souhaiterais un devis pour une prestation de sorbet coco.",
+      en: "Hello, I would like a quote for a coconut sorbet service."
+    };
+    document.querySelector('.whatsapp-float').href =
+      "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(messages[lang]);
+  }
+
+  function setLang(lang) {
+    document.documentElement.lang = lang;
+    document.querySelectorAll('[data-fr]').forEach(el => {
+      el.textContent = el.getAttribute('data-' + lang);
+    });
+    updateWhatsAppLink(lang);
+  }
+
+  setLang('fr');
+
+  function openModal(src) {
+    document.getElementById('modal-img').src = src;
+    document.getElementById('modal').classList.add('active');
+  }
+
+  function closeModal(e) {
+    if (e.target.id === 'modal' || e.target.classList.contains('modal-close')) {
+      document.getElementById('modal').classList.remove('active');
+    }
+  }
+</script>
+
+</body>
+</html>
